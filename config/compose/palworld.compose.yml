@@ -1,0 +1,27 @@
+################################
+# PalHUB by dekitarpg@gmail.com
+################################
+services: 
+  # 
+  # palworld: 
+  # the service for the main palworld game server
+  # 
+  palworld:
+    build: ../../game-server
+    stop_grace_period: 1s
+    restart: unless-stopped
+    image: palhub-game-server
+    container_name: palhub-game-server
+    volumes:
+      - ../../backups:/app/backups
+      - ../../server/palworld:/app/PalServer/Pal
+      - /etc/machine-id:/etc/machine-id:ro
+      - /etc/localtime:/etc/localtime:ro
+    env_file:
+      - ../../.env
+    networks:
+      - palhubnet
+
+################################
+# PalHUB by dekitarpg@gmail.com
+################################

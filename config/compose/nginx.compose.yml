@@ -1,0 +1,36 @@
+################################
+# PalHUB by dekitarpg@gmail.com
+################################
+services: 
+  # 
+  # nginx: 
+  # handles routing for the various other services 
+  # 
+  nginx:
+    image: nginx:mainline-alpine 
+    container_name: palhub-nginx
+    restart: unless-stopped
+    ports:
+      - 80:80   # website: basic http site
+      - 443:443 # website: ssl enabled site
+      - 8211:8211/udp   # palworld: main server communication line 
+      - 27015:27015/udp # palworld: allows server to show up in the community servers tab 
+      # - 19999:19999 # netdata handles system monitoring
+    volumes:
+      - nginx_data_container:/var/www/html
+      - ../../config/nginx:/etc/nginx
+    depends_on:
+      - palworld
+      - netdata
+    networks:
+      - palhubnet
+
+# 
+# defines named volumes used by nginx
+# 
+volumes:
+  nginx_data_container:
+
+################################
+# PalHUB by dekitarpg@gmail.com
+################################

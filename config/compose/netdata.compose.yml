@@ -1,0 +1,43 @@
+################################
+# PalHUB by dekitarpg@gmail.com
+################################
+services: 
+  # 
+  # netdata: 
+  # main system monitoring service
+  # 
+  netdata:
+    image: netdata/netdata
+    container_name: palhub-netdata
+    restart: unless-stopped
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - apparmor:unconfined
+    volumes:
+      - netdatalib:/var/lib/netdata
+      - netdatacache:/var/cache/netdata
+      - /etc/passwd:/host/etc/passwd:ro
+      - /etc/group:/host/etc/group:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /etc/os-release:/host/etc/os-release:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ../../config/netdata/netdata.conf:/etc/netdata/netdata.conf
+    env_file:
+      - ../../.env
+    depends_on:
+      - palworld
+    networks:
+      - palhubnet
+
+# 
+# defines named volumes for netdata cache storage
+# 
+volumes:
+  netdatacache:
+  netdatalib:
+
+################################
+# PalHUB by dekitarpg@gmail.com
+################################

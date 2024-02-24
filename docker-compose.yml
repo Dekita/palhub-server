@@ -1,0 +1,23 @@
+################################
+# PalHUB by dekitarpg@gmail.com
+################################
+version: '3.9'
+
+# 
+# defines various included services 
+# 
+include:
+  - ./config/compose/palworld.compose.yml
+  - ./config/compose/netdata.compose.yml
+  - ./config/compose/nginx.compose.yml
+
+# 
+# defines the network our services speak over 
+# 
+networks:
+  palhubnet:
+    driver: bridge  
+
+################################
+# PalHUB by dekitarpg@gmail.com
+################################
