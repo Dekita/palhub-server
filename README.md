@@ -49,5 +49,5 @@ If building on windows, you MUST be WITHIN a wsl environment & command terminal 
 If you get the `unexpected permission` error when building, run `sudo chmod -R 755 ./server`.
 
 ### Credit && Thanks
-Tangerie - for helping with my build issues and general idiotic questions 
+Tangerie - for helping with my build issues and general idiotic questions
 Peepoturtle - for their initial repo on running palworld windows server via proton
