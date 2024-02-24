@@ -3,8 +3,8 @@ FROM cm2network/steamcmd:root
 RUN apt-get update && apt-get install -y gosu cron wget python3 libfreetype6
 
 # ENV variables
-# set PalHUB version information
-ENV PalHUB="0.0.9" \
+# set DEKPALHUB version information
+ENV DEKPALHUB="0.0.9" \
     # define game app id
     APPID=2394010 \
     # define ue4ss version
@@ -14,7 +14,8 @@ ENV PalHUB="0.0.9" \
     # steam/proton related variables
     STEAM_USER="${USER}" \
     STEAM_HOME="/home/${USER}" \
-    STEAM_PATH="/home/${USER}/.steam/steam"
+    STEAM_PATH="/home/${USER}/.steam/steam" \
+    INTERNAL_PALWORLD_SERVER_DIR="/app/PalServer"
 
 ENV STEAM_COMPAT_CLIENT_INSTALL_PATH=${STEAM_PATH} \
     STEAM_COMPAT_DATA_PATH=${STEAM_PATH}/steamapps/compatdata/${APPID} \

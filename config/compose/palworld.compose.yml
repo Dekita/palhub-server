@@ -7,7 +7,7 @@ services:
   # the service for the main palworld game server
   # 
   palworld:
-    build: ../../game-server
+    build: ../../server
     stop_grace_period: 1s
     restart: unless-stopped
     image: palhub-game-server

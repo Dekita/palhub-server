@@ -24,10 +24,10 @@ services:
       - /etc/os-release:/host/etc/os-release:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ../../config/netdata/netdata.conf:/etc/netdata/netdata.conf
-    env_file:
-      - ../../.env
     depends_on:
       - palworld
+    env_file:
+      - ../../.env
     networks:
       - palhubnet
 

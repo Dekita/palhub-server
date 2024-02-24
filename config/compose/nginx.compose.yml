@@ -13,15 +13,18 @@ services:
     ports:
       - 80:80   # website: basic http site
       - 443:443 # website: ssl enabled site
-      - 8211:8211/udp   # palworld: main server communication line 
-      - 27015:27015/udp # palworld: allows server to show up in the community servers tab 
-      # - 19999:19999 # netdata handles system monitoring
+      # palworld: main server communication line 
+      - ${PALWORLD_GAME_PORT}:8211/udp 
+      # palworld: allows server to show up in the community servers tab 
+      - ${PALWORLD_RCON_PORT}:25575/udp 
     volumes:
       - nginx_data_container:/var/www/html
       - ../../config/nginx:/etc/nginx
     depends_on:
       - palworld
       - netdata
+    env_file:
+      - ../../.env
     networks:
       - palhubnet
 
