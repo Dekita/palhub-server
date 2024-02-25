@@ -23,21 +23,21 @@ fi
 ```
 
 ## Naming Conventions
-- Variables: UPPERCASE_WITH_UNDERSCORES
-  ```bash
-  GLOBAL_VARIABLE="value"
-  local_variable="value"
-  ```
-- Constants: UPPERCASE_WITH_UNDERSCORES
-  ```bash
-  readonly PI=3.14
-  ```
-- Functions: lowercase_with_underscores
-  ```bash
-  my_function() {
-      # function body
-  }
-  ```
+Variables: UPPERCASE_WITH_UNDERSCORES
+```bash
+GLOBAL_VARIABLE="value"
+local_variable="value"
+```
+Constants: UPPERCASE_WITH_UNDERSCORES
+```bash
+readonly PI=3.14
+```
+Functions: lowercase_with_underscores
+```bash
+my_function() {
+    # function body
+}
+```
 
 ## Quotes
 Use double quotes for strings.
