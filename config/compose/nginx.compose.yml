@@ -16,7 +16,9 @@ services:
       # palworld: main server communication line 
       - ${PALWORLD_GAME_PORT}:8211/udp 
       # palworld: allows server to show up in the community servers tab 
-      - ${PALWORLD_RCON_PORT}:25575/udp 
+      - ${PALWORLD_COMM_PORT}:27015/udp 
+      # palworld: allows rcon to communicate with server
+      - ${PALWORLD_RCON_PORT}:25575
     volumes:
       - nginx_data_container:/var/www/html
       - ../../config/nginx:/etc/nginx

@@ -14,7 +14,3 @@ if echo "${PALWORLD_BACKUP_TIMER} /app/backup.sh ${CRONARGS}" | crontab - ; then
 else
     die "[PALWORLD_BACKUP] Error adding cron job"
 fi
-
-################################
-# PalHUB by dekitarpg@gmail.com
-################################

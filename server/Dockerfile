@@ -1,3 +1,7 @@
+########################################
+# PalHUB::Server by dekitarpg@gmail.com
+########################################
+
 FROM cm2network/steamcmd:root
 
 RUN apt-get update && apt-get install -y gosu cron wget python3 libfreetype6
@@ -7,39 +11,38 @@ RUN apt-get update && apt-get install -y gosu cron wget python3 libfreetype6
 ENV DEKPALHUB="0.0.9" \
     # define game app id
     APPID=2394010 \
-    # define ue4ss version
-    UE4SS_VERSION=3.0.1 \
     # define proton version
     PROTON_VERSION=GE-Proton8-28 \
     # steam/proton related variables
     STEAM_USER="${USER}" \
     STEAM_HOME="/home/${USER}" \
     STEAM_PATH="/home/${USER}/.steam/steam" \
-    INTERNAL_PALWORLD_SERVER_DIR="/app/PalServer"
+    INTERNAL_PALWORLD_SERVER_DIR="/app/PalServer" 
 
-ENV STEAM_COMPAT_CLIENT_INSTALL_PATH=${STEAM_PATH} \
+# split env sections as the below variables require the above to be defined first!
+ENV PALWORLD_SERVER_EXE="${INTERNAL_PALWORLD_SERVER_DIR}/Pal/Binaries/Win64/PalServer-Win64-Test.exe" \
+    PALWORLD_CONFIG_INI="${INTERNAL_PALWORLD_SERVER_DIR}/Pal/Saved/Config/WindowsServer/PalWorldSettings.ini" \
+    EGGROLL_URL="https://github.com/GloriousEggroll/proton-ge-custom/releases/download/${PROTON_VERSION}/${PROTON_VERSION}.tar.gz" \
+    STEAM_COMPAT_CLIENT_INSTALL_PATH=${STEAM_PATH} \
     STEAM_COMPAT_DATA_PATH=${STEAM_PATH}/steamapps/compatdata/${APPID} \
-    PROTON=${STEAM_PATH}/compatibilitytools.d/${PROTON_VERSION}/proton
+    PROTON=${STEAM_PATH}/compatibilitytools.d/${PROTON_VERSION}/proton 
 
 RUN mkdir -p ${STEAM_PATH}
 WORKDIR ${STEAM_PATH}
 
-# Install Proton build from Glorious Eggroll
-RUN mkdir -p compatibilitytools.d/
-RUN wget -O - \
-    https://github.com/GloriousEggroll/proton-ge-custom/releases/download/${PROTON_VERSION}/${PROTON_VERSION}.tar.gz \
-    | tar -xz -C compatibilitytools.d/
-RUN mkdir -p steamapps/compatdata/${APPID}
-RUN cp -r compatibilitytools.d/${PROTON_VERSION}/files/share/default_pfx steamapps/compatdata/${APPID}
-# set owner of steam related files to steam user
-RUN chown -R ${USER}:${USER} ${STEAM_HOME}
-
-# copy main entrypoint file
-COPY ./entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
-# copy main server script files
 COPY ./scripts /app
-RUN chmod +x /app/*.sh
+COPY ./entrypoint.sh /entrypoint.sh
+
+# Install Proton build from Glorious Eggroll
+RUN mkdir -p compatibilitytools.d/ && \
+    wget -O - ${EGGROLL_URL} | tar -xz -C compatibilitytools.d/ && \
+    mkdir -p steamapps/compatdata/${APPID} && \
+    cp -r compatibilitytools.d/${PROTON_VERSION}/files/share/default_pfx steamapps/compatdata/${APPID} && \
+# set owner of steam related files to steam user
+    chown -R ${USER}:${USER} ${STEAM_HOME} && \
+# copy main entrypoint file
+    chmod +x /entrypoint.sh && \
+# copy main server script files
+    chmod +x /app/*.sh
 
 ENTRYPOINT ["/entrypoint.sh"]

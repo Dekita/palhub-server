@@ -56,7 +56,3 @@ die() {
     while [ 1 ]; do sleep 10;done
     # sleep 10; exit 1
 }
-
-################################
-# PalHUB by dekitarpg@gmail.com
-################################

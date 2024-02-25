@@ -6,7 +6,7 @@
 # include logger helper
 source /app/logger.sh
 
-STEAM_LOG_FILE=/app/logs/steamcmd.log
+STEAM_LOG_FILE=/app/logs/update.log
 
 # store reference to the steamcmd script
 STEAMCMD=${STEAM_HOME}/steamcmd/steamcmd.sh
@@ -18,15 +18,15 @@ mkdir -p ${INTERNAL_PALWORLD_SERVER_DIR}
 SERVER_DIR_PERMS=$(stat -c "%u:%g:%a" $INTERNAL_PALWORLD_SERVER_DIR)
 [ "$SERVER_DIR_PERMS" != "1000:1000:755" ] && die "$INTERNAL_PALWORLD_SERVER_DIR has unexpected permission $SERVER_DIR_PERMS != 1000:1000:755"
 
-# run steamcmd to install update of the game, or die if failed
+# run steamcmd to install or update the game, or die if failed
 $STEAMCMD +@sSteamCmdForcePlatformType windows +force_install_dir ${INTERNAL_PALWORLD_SERVER_DIR} +login anonymous +app_update ${APPID} validate +quit >> "$STEAM_LOG_FILE" || die "Failed to install/update game server!!" 
 
-# PALWORLD_SERVER_EXE: exposed to main.sh
-# store reference to the main palworld server executable
-PALWORLD_SERVER_EXE="${INTERNAL_PALWORLD_SERVER_DIR}/Pal/Binaries/Win64/PalServer-Win64-Test.exe"
 # ensure file exists or die
 [ ! -f ${PALWORLD_SERVER_EXE} ] && die "${PALWORLD_SERVER_EXE} does not exist"
 
-################################
-# PalHUB by dekitarpg@gmail.com
-################################
+# if server config ini is empty (just installed) then copy default settings!
+if [ -z "$(grep -E -v '^\s*#' "${PALWORLD_CONFIG_INI}" | grep -E -v '^\s*$')" ]; then 
+    # Copy default-config, which comes with SteamCMD to gameserver save location
+    cp "${INTERNAL_PALWORLD_SERVER_DIR}/DefaultPalWorldSettings.ini" "${PALWORLD_CONFIG_INI}"
+    log "info" "DefaultPalWorldSettings.ini copied to ${PALWORLD_CONFIG_INI}"
+fi 
