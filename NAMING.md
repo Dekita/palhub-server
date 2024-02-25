@@ -23,7 +23,7 @@ fi
 ```
 
 ## Naming Conventions
-Variables: UPPERCASE_WITH_UNDERSCORES
+Variables: 
 ```bash
 GLOBAL_VARIABLE="value"
 local_variable="value"
@@ -67,10 +67,18 @@ my_function
 
 ## Conditional Statements and Loops
 ```bash
+# Execute function if condition
+[ "$var" -eq 10 ] && my_function
+
+# Execute function if NOT condition
+[ "$var" -eq 10 ] || my_function
+
+# General conditional block (use if need multiple lines within if block)
 if [ "$var" -eq 10 ]; then
     # code block
 fi
 
+# Loop
 for i in {1..5}; do
     # code block
 done
