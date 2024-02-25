@@ -1,4 +1,7 @@
 #!/bin/bash
+################################
+# PalHUB by dekitarpg@gmail.com
+################################
 
 
 ACTUAL_PORT=8211
@@ -27,3 +30,7 @@ fi
 
 # advertise server
 PALWORLD_SERVER_ARGS="${ARGS} EpicApp=PalServer"
+
+################################
+# PalHUB by dekitarpg@gmail.com
+################################

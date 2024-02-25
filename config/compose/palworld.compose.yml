@@ -13,6 +13,8 @@ services:
     image: palhub-game-server
     container_name: palhub-game-server
     volumes:
+      - ../../logs:/app/logs # mount directory for storing logs
+      - ../../logs/steam:/home/steam/.steam/steam/logs # add steam logs
       - ../../backups:/app/backups
       - ../../server/palworld:/app/PalServer/Pal
       - /etc/machine-id:/etc/machine-id:ro
