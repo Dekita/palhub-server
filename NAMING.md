@@ -94,4 +94,5 @@ else
 fi
 ```
 
-These conventions aim to improve the readability and maintainability of your shell scripts. Be consistent in your coding style for better collaboration and understanding.
+These conventions aim to improve the readability and maintainability of the shell scripts. 
+If making any commits, please be consistent in your coding style for better collaboration and understanding.
