@@ -28,7 +28,7 @@ clear_log_dir(){
 log() {
     local level="${1:-info}"
     local message="${2:-No message to log}"
-    local file="${3:-}"
+    local file="${3:-/app/logs/palhub.log}"
 
     # Set color based on argument
     if [ "$level" == "success" ]; then

@@ -8,10 +8,10 @@ services:
   # 
   palworld:
     build: ../../server
-    stop_grace_period: 1s
-    restart: unless-stopped
-    image: palhub-game-server
     container_name: palhub-game-server
+    stop_grace_period: ${PALWORLD_GRACEPERIOD}
+    restart: ${PALWORLD_RESTARTTYPE}
+    image: palhub-game-server
     volumes:
       - ../../logs:/app/logs # mount directory for storing logs
       - ../../logs/steam:/home/steam/.steam/steam/logs # add steam logs

@@ -51,3 +51,8 @@ If you get the `unexpected permission` error when building, run `sudo chmod -R 7
 ### Credit && Thanks
 Tangerie - for helping with my build issues and general idiotic questions
 Peepoturtle - for their initial repo on running palworld windows server via proton
+
+
+## Notes: 
+Default admin credentials for .htpasswd: user=PalHUB pass=PassHUB
+This will be properly implemented once the admin panel is setup. 

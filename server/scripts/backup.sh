@@ -12,6 +12,7 @@ INTERNAL_PALWORLD_SERVER_DIR=$1
 WORLD_BACKUP_LIMIT=$2
 
 backup_game_data() {
+    log "info" "Running game world backup.."
     local world_save_dir="${INTERNAL_PALWORLD_SERVER_DIR}/Pal/Saved/SaveGames"
     backup_data "$world_save_dir" "/app/backups/world" "$WORLD_BACKUP_LIMIT" 
 }

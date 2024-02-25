@@ -17,8 +17,7 @@ backup_data() {
 
     # Generate timestamp for the current backup
     local timestamp=$(date +"%Y%m%d%H%M%S")
-
-    local backup_file="$backup_dir/${timestamp}.tgz"
+    local backup_file="$backup_dir/$timestamp.tgz"
 
     # Ensure the backup directory exists, create it if not
     mkdir -p "$backup_dir" || die "Failed to create directory: $backup_dir" "$log_file"
@@ -39,7 +38,6 @@ backup_data() {
 
     # Limit the number of backups
     current_backups=$(ls -1t "$backup_dir" | grep -E '[0-9]{14}\.(tgz|log)' | head -n "$backup_limit")
-
     for old_backup in $(ls -1t "$backup_dir" | grep -E '[0-9]{14}\.(tgz|log)' | tail -n +$((backup_limit + 1))); do
         rm "$backup_dir/$old_backup" || die "Failed to remove old backup: $old_backup" "$log_file"
         log "info" "REMOVED BACKUP: ${backup_dir}/${old_backup}" "$log_file"
