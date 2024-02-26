@@ -1,5 +1,5 @@
 # PalHUB::Server
-A Windows palworld server with full ue4ss modloading functionality, running under proton/wine within docker, made for linux deployment! <3
+A docker container to run the WINDOWS palworld server with full [UE4SS](https://github.com/UE4SS-RE/RE-UE4SS) modloading functionality, running under proton/wine within docker, made for deployment on linux! <3
 
 ## Instructions
 - (optional) make .env file and edit settings
