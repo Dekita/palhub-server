@@ -24,6 +24,7 @@ services:
       - ../../server/palworld:/app/palworld
       - ../../config/nginx:/etc/nginx
       - ../../logs/nginx:/var/log/nginx
+      - ../../logs:/app/logs
     depends_on:
       - palworld
       - netdata
