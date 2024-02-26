@@ -59,8 +59,8 @@ This will be properly implemented once the admin panel is setup.
 The files within the 'logs' directory will be cleaned for each boot, not including the logs/subfolders, which are mounted from their respective running containers.. eg, logs/nginx are the log files from the nginx instance - and its upto that how often it cleans those. 
 
 #### TODO:
-add basic admin panel to control server config + rcon support etc. 
-validate community server listing works as intended
+- add basic admin panel to control server config + rcon support etc. 
+- validate community server listing works as intended
 
-netdata.conf doesnt seem to be getting properly read - fix that
-- add custom netdata panels for game specific events using statsd
+- netdata.conf doesnt seem to be getting properly read - fix that
+  - add custom netdata panels for game specific events using statsd
