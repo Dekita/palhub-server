@@ -36,10 +36,6 @@ PalHUB::Server is a docker compose configuration designed to run the windows ver
 - netdata.conf doesnt seem to be getting properly read - fix that
   - add custom netdata panels for game specific events using statsd
 
-
-## Notes: 
-The files within the 'logs' directory will be cleaned for each boot, not including the logs/subfolders, which are mounted from their respective running containers.. eg, logs/nginx are the log files from the nginx instance - and its upto that how often it cleans those. 
-
 ## Credit && Thanks
 - Tangerie - for helping with my build issues and general idiotic questions
 - Peepoturtle - for their initial repo on running palworld windows server via proton

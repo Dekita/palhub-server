@@ -13,3 +13,6 @@ The main difference between these two type of mods, is that a PAK LOGIC mod has 
 
 # Backups
 Automatic backups are enabled by defualt every hour. This can be customized using ENV variables. Backup files will be automatically zipped and saved into 'backups'.
+
+## Notes: 
+The files within the 'logs' directory will be cleaned for each boot, not including the logs/subfolders, which are mounted from their respective running containers.. eg, logs/nginx are the log files from the nginx instance - and its upto that how often it cleans those. 
