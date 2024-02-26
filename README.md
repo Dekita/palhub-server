@@ -52,13 +52,11 @@ If you get the `unexpected permission` error when building, run `sudo chmod -R 7
 - Tangerie - for helping with my build issues and general idiotic questions
 - Peepoturtle - for their initial repo on running palworld windows server via proton
 
-
-
 #### Notes: 
 Default admin credentials for .htpasswd: user=PalHUB pass=PassHUB
 This will be properly implemented once the admin panel is setup. 
 
-The 'logs' directories files will be cleaned for each boot, except from the logs/subfolders, which are mounted from their respective running containers.. eg, logs/nginx are the log files from the nginx instance - and its upto that how often it cleans those. 
+The files within the 'logs' directory will be cleaned for each boot, not including the logs/subfolders, which are mounted from their respective running containers.. eg, logs/nginx are the log files from the nginx instance - and its upto that how often it cleans those. 
 
 #### TODO:
 add basic admin panel to control server config + rcon support etc. 
