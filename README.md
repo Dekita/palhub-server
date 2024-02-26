@@ -2,7 +2,7 @@
 Easily run the windows palworld server on linux with ue4ss mod-loading support!! 
 
 ## About
-PalHUB::Server is a docker compose configuration designed to run the windows version of the dedicated palworld server on linux. It does this to allow for full mod-loading functionality powered by [UE4SS](https://github.com/UE4SS-RE/RE-UE4SS), which currently only runs on windows. To achieve this, the game server container is running under proton/wine using the [cm2network/steamcmd](https://hub.docker.com/r/cm2network/steamcmd) container as a base. 
+PalHUB::Server is a docker compose configuration designed to run the windows version of the dedicated palworld server on linux. It does this to allow for full mod-loading functionality powered by [UE4SS](https://github.com/UE4SS-RE/RE-UE4SS), which currently only runs on windows. To achieve this, the game server container is running under proton/wine [[proton-ge-custom]](https://github.com/GloriousEggroll/proton-ge-custom) by using the [cm2network/steamcmd](https://hub.docker.com/r/cm2network/steamcmd) container as a base. 
 
 
 Along with running the standard windows dedicated palworld game server, this configuration includes additional admin tools. This includes;
