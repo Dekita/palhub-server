@@ -6,12 +6,12 @@ PalHUB::Server is a docker compose configuration designed to run the windows ver
 
 
 Along with running the standard windows dedicated palworld game server, this configuration includes additional admin tools. This includes;
-- NginX proxy setup to allow for advanced route/port control
+- NginX proxy setup to allow for advanced route/port control / admin protected routes
 - Netdata dashboard for full system metrics
 - A basic http website with the following endpoints;
-  - / (endpoint to validate system functionality)
-  - /files (allows you to view the game server files)
-  - /netdata (allows you to monitor system metrics)
+  - / (simple endpoint to validate system functionality)
+  - /files (allows you to view the game server files - requires htpasswd admin)
+  - /netdata (allows you to monitor system metrics - requires htpasswd admin)
 
 ## Requirements
 needs docker + docker-compose on the system
@@ -75,8 +75,8 @@ This will be properly implemented once the admin panel is setup.
 The files within the 'logs' directory will be cleaned for each boot, not including the logs/subfolders, which are mounted from their respective running containers.. eg, logs/nginx are the log files from the nginx instance - and its upto that how often it cleans those. 
 
 #### TODO:
+- allow for simple customized 'landing page' on the / route.
 - add basic admin panel to control server config + rcon support etc. 
 - validate community server listing works as intended
-
 - netdata.conf doesnt seem to be getting properly read - fix that
   - add custom netdata panels for game specific events using statsd
