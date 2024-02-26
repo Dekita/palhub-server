@@ -1,7 +1,7 @@
 #!/bin/bash
-################################
-# PalHUB by dekitarpg@gmail.com
-################################
+########################################
+# PalHUB::Server by dekitarpg@gmail.com
+########################################
 
 # Define colors
 LOG_COLOR_RED='\e[31m'

@@ -1,11 +1,9 @@
-# File: ue4ss.sh
 #!/bin/bash
-################################
-# PalHUB by dekitarpg@gmail.com
-################################
+########################################
+# PalHUB::Server by dekitarpg@gmail.com
+########################################
 
-# include logger helper
-source /app/logger.sh
+# source /app/logger.sh
 source /app/helpers.sh
 
 # UE4SS_LOG_PATH: exposed to main.sh

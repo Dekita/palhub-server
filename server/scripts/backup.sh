@@ -1,10 +1,9 @@
 #!/bin/bash
-################################
-# PalHUB by dekitarpg@gmail.com
-################################
+########################################
+# PalHUB::Server by dekitarpg@gmail.com
+########################################
 
-# include logger helper
-source /app/logger.sh
+# source /app/logger.sh
 source /app/helpers.sh
 
 # get arg variables passed to script (passed from env variables)

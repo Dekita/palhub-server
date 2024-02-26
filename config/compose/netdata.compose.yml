@@ -1,6 +1,6 @@
-################################
-# PalHUB by dekitarpg@gmail.com
-################################
+########################################
+# PalHUB::Server by dekitarpg@gmail.com
+########################################
 services: 
   # 
   # netdata: 
@@ -37,7 +37,3 @@ services:
 volumes:
   netdatacache:
   netdatalib:
-
-################################
-# PalHUB by dekitarpg@gmail.com
-################################

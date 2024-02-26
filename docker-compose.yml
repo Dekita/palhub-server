@@ -1,6 +1,6 @@
-################################
-# PalHUB by dekitarpg@gmail.com
-################################
+########################################
+# PalHUB::Server by dekitarpg@gmail.com
+########################################
 version: '3.9'
 
 # 
@@ -17,7 +17,3 @@ include:
 networks:
   palhubnet:
     driver: bridge  
-
-################################
-# PalHUB by dekitarpg@gmail.com
-################################

@@ -1,7 +1,7 @@
 #!/bin/bash
-################################
-# PalHUB by dekitarpg@gmail.com
-################################
+########################################
+# PalHUB::Server by dekitarpg@gmail.com
+########################################
 
 # include logger helper
 source /app/logger.sh

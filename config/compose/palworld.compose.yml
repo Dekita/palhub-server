@@ -1,6 +1,6 @@
-################################
-# PalHUB by dekitarpg@gmail.com
-################################
+########################################
+# PalHUB::Server by dekitarpg@gmail.com
+########################################
 services: 
   # 
   # palworld: 
@@ -23,7 +23,3 @@ services:
       - ../../.env
     networks:
       - palhubnet
-
-################################
-# PalHUB by dekitarpg@gmail.com
-################################
