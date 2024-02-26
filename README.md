@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/palhub-ikon.webp" title="Runpod Worker Thread" /></p>
+<p align="center"><img style="height: 256px; width: auto;" src="assets/palhub-ikon.webp" title="Runpod Worker Thread" /></p>
 
 # PalHUB::Server
 Easily run the windows palworld server on linux with ue4ss mod-loading support!! 
