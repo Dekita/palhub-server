@@ -24,13 +24,13 @@ services:
       - /etc/os-release:/host/etc/os-release:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ../../config/netdata/netdata.conf:/etc/netdata/netdata.conf
+      - ../../logs/netdata:/var/log/netdata
     depends_on:
       - palworld
     env_file:
       - ../../.env
     networks:
       - palhubnet
-
 # 
 # defines named volumes for netdata cache storage
 # 

@@ -4,7 +4,7 @@ A Windows palworld server with full ue4ss modloading functionality, running unde
 ## Instructions
 - (optional) make .env file and edit settings
 ```
-cp env.sample .env
+cp env.default .env
 vi .env
 ...
 ```
@@ -45,14 +45,24 @@ The main difference between these two type of mods, is that a PAK LOGIC mod has 
 Automatic backups are enabled by defualt every hour. This can be customized using ENV variables. Backup files will be automatically zipped and saved into 'backups'.
 
 ## Common Errors
-If building on windows, you MUST be WITHIN a wsl environment & command terminal to build the container properly. 
+If building on windows, you MUST be WITHIN a wsl environment & command terminal to build the container properly. I havent been able to build this properly from a windows command line. If you know why and can help, let me know <3
 If you get the `unexpected permission` error when building, run `sudo chmod -R 755 ./server`.
 
 ### Credit && Thanks
-Tangerie - for helping with my build issues and general idiotic questions
-Peepoturtle - for their initial repo on running palworld windows server via proton
+- Tangerie - for helping with my build issues and general idiotic questions
+- Peepoturtle - for their initial repo on running palworld windows server via proton
 
 
-## Notes: 
+
+#### Notes: 
 Default admin credentials for .htpasswd: user=PalHUB pass=PassHUB
 This will be properly implemented once the admin panel is setup. 
+
+The 'logs' directories files will be cleaned for each boot, except from the logs/subfolders, which are mounted from their respective running containers.. eg, logs/nginx are the log files from the nginx instance - and its upto that how often it cleans those. 
+
+#### TODO:
+add basic admin panel to control server config + rcon support etc. 
+validate community server listing works as intended
+
+netdata.conf doesnt seem to be getting properly read - fix that
+- add custom netdata panels for game specific events using statsd

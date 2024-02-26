@@ -12,7 +12,7 @@ services:
     restart: unless-stopped
     ports:
       - 80:80   # website: basic http site
-      - 443:443 # website: ssl enabled site
+      # - 443:443 # website: ssl enabled site # ! uncomment when/if ssl support added
       # palworld: main server communication line 
       - ${PALWORLD_GAME_PORT}:8211/udp 
       # palworld: allows server to show up in the community servers tab 
@@ -21,7 +21,9 @@ services:
       - ${PALWORLD_RCON_PORT}:25575
     volumes:
       - nginx_data_container:/var/www/html
+      - ../../server/palworld:/app/palworld
       - ../../config/nginx:/etc/nginx
+      - ../../logs/nginx:/var/log/nginx
     depends_on:
       - palworld
       - netdata
