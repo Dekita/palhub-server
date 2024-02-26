@@ -7,6 +7,7 @@ source /app/logger.sh
 
 STEAM_LOG_FILE=/app/logs/update.log
 
+log "info" "Running steamcmd installer/updater"
 # store reference to the steamcmd script
 STEAMCMD=${STEAM_HOME}/steamcmd/steamcmd.sh
 
@@ -18,7 +19,7 @@ SERVER_DIR_PERMS=$(stat -c "%u:%g:%a" $INTERNAL_PALWORLD_SERVER_DIR)
 [ "$SERVER_DIR_PERMS" != "1000:1000:755" ] && die "$INTERNAL_PALWORLD_SERVER_DIR has unexpected permission $SERVER_DIR_PERMS != 1000:1000:755"
 
 # run steamcmd to install or update the game, or die if failed
-$STEAMCMD +@sSteamCmdForcePlatformType windows +force_install_dir ${INTERNAL_PALWORLD_SERVER_DIR} +login anonymous +app_update ${APPID} validate +quit >> "$STEAM_LOG_FILE" || die "Failed to install/update game server!!" 
+$STEAMCMD +@sSteamCmdForcePlatformType windows +force_install_dir ${INTERNAL_PALWORLD_SERVER_DIR} +login anonymous +app_update ${APPID} validate +quit  2>&1 | tee -a $STEAM_LOG_FILE || die "Failed to install/update game server!!" 
 
 # ensure file exists or die
 [ ! -f ${PALWORLD_SERVER_EXE} ] && die "${PALWORLD_SERVER_EXE} does not exist"
