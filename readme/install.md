@@ -6,7 +6,7 @@
 # Instructions
 - (optional) make .env file and edit settings
 ```
-cp env.default .env
+cp .default.env .env
 vi .env
 ...
 ```

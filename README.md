@@ -23,7 +23,7 @@ PalHUB::Server is a docker compose configuration designed to run the windows ver
 
 ## Quickstart
 - [Install Guide](/readme/install.md) 
-- [ENV Variables](/.env.default)
+- [ENV Variables](/.default.env)
 - [Admin Setup](/readme/admins.md)
 - [Files, Mods, Backups](readme/files.md)
 
