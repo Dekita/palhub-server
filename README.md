@@ -37,5 +37,5 @@ PalHUB::Server is a docker compose configuration designed to run the windows ver
   - add custom netdata panels for game specific events using statsd
 
 ## Credit && Thanks
-- Tangerie - for helping with my build issues and general idiotic questions
-- Peepoturtle - for their initial repo on running palworld windows server via proton
+- [Tangerie](https://github.com/Tangerie) - for helping with my build issues and general idiotic questions
+- [Peepoturtle](https://github.com/peepoturtle) - for their initial repo on running palworld windows server via proton
