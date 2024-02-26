@@ -30,7 +30,12 @@ PalHUB::Server is a docker compose configuration designed to run the windows ver
 - [Files, Mods, Backups](readme/files.md)
 
 ## TODO:
-see [todo-list](/readme/todo.md)
+- allow for simple customized 'landing page' on the / route.
+- add basic admin panel to control server config + rcon support etc. 
+- validate community server listing works as intended
+- netdata.conf doesnt seem to be getting properly read - fix that
+  - add custom netdata panels for game specific events using statsd
+
 
 ## Notes: 
 The files within the 'logs' directory will be cleaned for each boot, not including the logs/subfolders, which are mounted from their respective running containers.. eg, logs/nginx are the log files from the nginx instance - and its upto that how often it cleans those. 
