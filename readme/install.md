@@ -1,9 +1,9 @@
 
-## Requirements
+# Requirements
 * needs docker + docker-compose on the system
 * build within linux machine or wsl terminal
 
-## Instructions
+# Instructions
 - (optional) make .env file and edit settings
 ```
 cp env.default .env
@@ -31,7 +31,7 @@ docker compose logs -f
 docker compose down
 ```
 
-## Common Errors
+# Common Errors
 If building on windows, you MUST be WITHIN a wsl environment & command terminal to build the container properly. I havent been able to build this properly from a windows command line. If you know why and can help, let me know <3
 If you get the `unexpected permission` error when building, run `sudo chmod -R 755 ./server`.
 

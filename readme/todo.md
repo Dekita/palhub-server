@@ -1,4 +1,4 @@
-#### TODO:
+# TODO:
 - allow for simple customized 'landing page' on the / route.
 - add basic admin panel to control server config + rcon support etc. 
 - validate community server listing works as intended
