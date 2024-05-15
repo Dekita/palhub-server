@@ -45,9 +45,9 @@ launch_server() {
     # run main proton command to launch server
     cd "${INTERNAL_PALWORLD_SERVER_DIR}/Pal/Binaries/Win64"
     launch_command="$PROTON run ./PalServer-Win64-Shipping-Cmd.exe ${server_args}"
+    # launch_command="$PROTON run $PALWORLD_SERVER_EXE ${server_args}"
 
     
-    # launch_command="$PROTON run $PALWORLD_SERVER_EXE ${server_args}"
     log "info" "launch_command: ${launch_command}"
     ${launch_command}
 }

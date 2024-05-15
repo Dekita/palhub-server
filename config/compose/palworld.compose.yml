@@ -20,6 +20,15 @@ services:
       - ../../backups:/app/backups
       - /etc/machine-id:/etc/machine-id:ro
       - /etc/localtime:/etc/localtime:ro
+    # ports: 
+    #   # palworld: main server communication line 
+    #   - ${PALWORLD_GAME_PORT}:8211/udp 
+    #   # palworld: allows server to show up in the community servers tab 
+    #   - ${PALWORLD_COMM_PORT}:27015/tcp 
+    #   # palworld: allows rcon to communicate with server
+    #   - ${PALWORLD_RCON_PORT}:25575/tcp
+    #   # Palworld: rest api port
+    #   - ${PALWORLD_REST_PORT}:8212/tcp 
     env_file:
       - ../../.env
     networks:

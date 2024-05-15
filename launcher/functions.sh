@@ -28,12 +28,12 @@ stop_containers() {
 }
 
 start_containers() {
-    docker-compose up #-d
+    docker compose up #-d
     echo "Container restarted!"
 }
 
 rebuild_containers() {
-    docker-compose up --build --force-recreate
+    docker compose up --build --force-recreate
     # docker-compose up #-d
     echo "Container rebuilt & restarted!"
 }

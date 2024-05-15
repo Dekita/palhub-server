@@ -13,11 +13,12 @@ services:
     restart: unless-stopped
     image: palhub-admin-server
     volumes:
-      - ../../.env:/app/mounted-env.env # mount env file so we can edit from ui
+      # mount env files so we can edit/reset from ui
+      - ../../.env:/app/mounted-env.env 
+      - ../../.default.env:/app/default-env.env
       - ../../logs:/app/logs # mount directory for storing logs
       - ../../backups:/app/backups
       - ../../server/palworld:/app/PalServer
-      - ../../docker-updater.sh:/app/docker-updater.sh
     env_file:
       - ../../.env
     networks:

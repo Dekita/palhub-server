@@ -3,4 +3,5 @@
 logs/*
 backups/*
 server/palworld/*
+config/nginx/.htpasswd
 zz-todelete

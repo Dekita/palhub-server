@@ -13,10 +13,10 @@ services:
     restart: unless-stopped
     ports:
       - 80:80   # website: basic http site
-      # - 443:443 # website: ssl enabled site # ! uncomment when/if ssl support added
-      # palworld: main server communication line 
+      - 443:443 # website: ssl enabled site # ! uncomment when/if ssl support added
+      # # palworld: main server communication line 
       - ${PALWORLD_GAME_PORT}:8211/udp 
-      # palworld: allows server to show up in the community servers tab 
+      # # palworld: allows server to show up in the community servers tab 
       - ${PALWORLD_COMM_PORT}:27015/udp 
       # palworld: allows rcon to communicate with server
       - ${PALWORLD_RCON_PORT}:25575/tcp
