@@ -15,7 +15,8 @@ services:
     volumes:
       - ../../logs:/app/logs # mount directory for storing logs
       - ../../logs/steam:/home/steam/.steam/steam/logs # add steam logs
-      - ../../server/palworld:/app/PalServer/Pal
+      # - ../../server/palworld:/app/PalServer/Pal
+      - ../../server/palworld:/app/PalServer
       - ../../backups:/app/backups
       - /etc/machine-id:/etc/machine-id:ro
       - /etc/localtime:/etc/localtime:ro

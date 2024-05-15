@@ -3,6 +3,14 @@
 - needs docker + docker-compose on the system
 - build within linux machine or wsl terminal
 
+## for running via auto launcher
+```
+chmod +x ./launcher.sh
+chmod +x ./launcher/*
+./launcher.sh
+```
+
+
 # Instructions
 Clone the repository
 ```

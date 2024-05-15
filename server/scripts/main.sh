@@ -12,12 +12,12 @@ source /app/logger.sh
 # clear all previous log contents on container start:
 clear_log_dir
 
-# ensure ue4ss is installed and 'expose' UE4SS_LOG_PATH for use in this file
-source /app/ue4ss.sh
-
 # include the main game server script
 # this automatically installs/updates the game server
 source /app/server.sh
+
+# ensure ue4ss is installed and 'expose' UE4SS_LOG_PATH for use in this file
+source /app/ue4ss.sh
 
 # schedule various cron tasks
 source /app/cronjobs.sh

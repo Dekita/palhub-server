@@ -8,7 +8,7 @@ services:
   # 
   netdata:
     image: netdata/netdata
-    container_name: palhub-netdata
+    container_name: ${PALHUB_INTERNAL_NETDATA_HOST}
     restart: unless-stopped
     cap_add:
       - SYS_PTRACE

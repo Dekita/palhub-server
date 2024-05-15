@@ -1,0 +1,24 @@
+########################################
+# PalHUB::Server by dekitarpg@gmail.com
+########################################
+services: 
+  # 
+  # palworld: 
+  # the service for the main palworld game server
+  # 
+  admin:
+    build: ../../admin
+    container_name: palhub-admin-server
+    # stop_grace_period: ${PALWORLD_GRACEPERIOD}
+    restart: unless-stopped
+    image: palhub-admin-server
+    volumes:
+      - ../../.env:/app/mounted-env.env # mount env file so we can edit from ui
+      - ../../logs:/app/logs # mount directory for storing logs
+      - ../../backups:/app/backups
+      - ../../server/palworld:/app/PalServer
+      - ../../docker-updater.sh:/app/docker-updater.sh
+    env_file:
+      - ../../.env
+    networks:
+      - palhubnet

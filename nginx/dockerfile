@@ -1,0 +1,15 @@
+# Use the Nginx mainline alpine image as the base image
+FROM nginx:mainline-alpine
+
+# Install apache2-utils for htpasswd
+RUN apk update && apk add apache2-utils
+
+# Copy the custom startup script
+COPY nginx-start.sh /usr/local/bin/nginx-start.sh
+
+# Make the script executable
+RUN chmod +x /usr/local/bin/nginx-start.sh
+
+# Run main nginx server start script
+# this automatically rewrites the htaccess file
+CMD ["/usr/local/bin/nginx-start.sh"]

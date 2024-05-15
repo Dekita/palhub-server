@@ -4,7 +4,7 @@
 
 FROM cm2network/steamcmd:root
 
-RUN apt-get update && apt-get install -y gosu cron wget python3 libfreetype6
+RUN apt-get update && apt-get install -y gosu cron wget python3 libfreetype6 unzip jq
 
 # ENV variables
 # set DEKPALHUB version information
@@ -12,7 +12,7 @@ ENV DEKPALHUB="0.0.9" \
     # define game app id
     APPID=2394010 \
     # define proton version
-    PROTON_VERSION=GE-Proton8-28 \
+    PROTON_VERSION=GE-Proton9-5 \
     # steam/proton related variables
     STEAM_USER="${USER}" \
     STEAM_HOME="/home/${USER}" \
@@ -20,7 +20,9 @@ ENV DEKPALHUB="0.0.9" \
     INTERNAL_PALWORLD_SERVER_DIR="/app/PalServer" 
 
 # split env sections as the below variables require the above to be defined first!
-ENV PALWORLD_SERVER_EXE="${INTERNAL_PALWORLD_SERVER_DIR}/Pal/Binaries/Win64/PalServer-Win64-Test.exe" \
+# ENV PALWORLD_SERVER_EXE="${INTERNAL_PALWORLD_SERVER_DIR}/PalServer.exe" \
+# Pal/Binaries/Win64/PalServer-Win64-Shipping-Cmd.exe"
+ENV PALWORLD_SERVER_EXE="${INTERNAL_PALWORLD_SERVER_DIR}/Pal/Binaries/Win64/PalServer-Win64-Shipping-Cmd.exe" \ 
     PALWORLD_CONFIG_INI="${INTERNAL_PALWORLD_SERVER_DIR}/Pal/Saved/Config/WindowsServer/PalWorldSettings.ini" \
     EGGROLL_URL="https://github.com/GloriousEggroll/proton-ge-custom/releases/download/${PROTON_VERSION}/${PROTON_VERSION}.tar.gz" \
     STEAM_COMPAT_CLIENT_INSTALL_PATH=${STEAM_PATH} \

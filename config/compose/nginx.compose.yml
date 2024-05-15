@@ -7,7 +7,8 @@ services:
   # handles routing for the various other services 
   # 
   nginx:
-    image: nginx:mainline-alpine 
+    build: ../../nginx
+    # image: nginx:mainline-alpine 
     container_name: palhub-nginx
     restart: unless-stopped
     ports:
@@ -18,7 +19,9 @@ services:
       # palworld: allows server to show up in the community servers tab 
       - ${PALWORLD_COMM_PORT}:27015/udp 
       # palworld: allows rcon to communicate with server
-      - ${PALWORLD_RCON_PORT}:25575
+      - ${PALWORLD_RCON_PORT}:25575/tcp
+      # Palworld: rest api port
+      - ${PALWORLD_REST_PORT}:8212/tcp
     volumes:
       - nginx_data_container:/var/www/html
       - ../../server/palworld:/app/palworld
