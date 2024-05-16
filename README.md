@@ -50,13 +50,14 @@ Admin: (password protected (htpasswd))
 - [Files, Mods, Backups](readme/files.md)
 
 
+## Credit && Thanks
+- [Tangerie](https://github.com/Tangerie) - for helping with my build issues and general idiotic questions
+- [Peepoturtle](https://github.com/peepoturtle) - for their initial repo on running palworld windows server via proton
+
+
 ## TODO:
 - allow for simple customized 'landing page' on the / route.
 - validate community server listing works as intended
 - netdata.conf doesnt seem to be getting properly read - fix that
   - add custom netdata panels for game specific events using statsd
 
-
-## Credit && Thanks
-- [Tangerie](https://github.com/Tangerie) - for helping with my build issues and general idiotic questions
-- [Peepoturtle](https://github.com/peepoturtle) - for their initial repo on running palworld windows server via proton
