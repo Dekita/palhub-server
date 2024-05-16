@@ -1,33 +1,19 @@
 ########################################
 # PalHUB::Server by dekitarpg@gmail.com
 ########################################
-services: 
+services:
   # 
-  # palworld: 
-  # the service for the main palworld game server
+  # admin: 
+  # see ./admin.compose.yml
   # 
   admin:
-    build: 
+    extends: #extend upon the base admin.compose file
+      file: ./admin.compose.yml
+      service: admin
+    build: # use the dev.dockerfile as we are dev
       context: ../../admin
       dockerfile: ./dev.dockerfile
-    container_name: palhub-admin-server
-    # stop_grace_period: ${PALWORLD_GRACEPERIOD}
-    restart: unless-stopped
-    image: palhub-admin-server
-    volumes:
-      # mount env files so we can edit/reset from ui
-      - ../../.env:/app/mounted-env.env 
-      - ../../.default.env:/app/default-env.env
-      - ../../logs:/app/logs # mount directory for storing logs
-      - ../../backups:/app/backups
-      - ../../server/palworld:/app/PalServer
-      ### comment in/out the following section to enable/disable hot-reloading for development
+    volumes: #additional volumes for hot reloading
       - ../../admin:/app
       - /app/node_modules
       - /app/.next
-    # ports: 
-    #   - 8080:8080 # bind py server port for executing updates etc
-    env_file:
-      - ../../.env
-    networks:
-      - palhubnet

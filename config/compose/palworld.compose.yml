@@ -13,13 +13,16 @@ services:
     restart: ${PALWORLD_RESTARTTYPE}
     image: palhub-game-server
     volumes:
-      - ../../logs:/app/logs # mount directory for storing logs
-      - ../../logs/steam:/home/steam/.steam/steam/logs # add steam logs
-      # - ../../server/palworld:/app/PalServer/Pal
-      - ../../server/palworld:/app/PalServer
+      # mount directory for storing logs & backups
+      - ../../logs:/app/logs 
       - ../../backups:/app/backups
+      - ../../logs/steam:/home/steam/.steam/steam/logs # add steam logs
+      # mount the actual game server folder
+      - ../../server/palworld:/app/PalServer
+      # additional mounts for system id + time
       - /etc/machine-id:/etc/machine-id:ro
       - /etc/localtime:/etc/localtime:ro
+    ### Ports can be exposed here if nginx, admin, and netdata are disabled from main compose file :O
     # ports: 
     #   # palworld: main server communication line 
     #   - ${PALWORLD_GAME_PORT}:8211/udp 

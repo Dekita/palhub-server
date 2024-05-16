@@ -20,7 +20,7 @@ services:
       - ${PALWORLD_COMM_PORT}:27015/udp 
       # palworld: allows rcon to communicate with server
       - ${PALWORLD_RCON_PORT}:25575/tcp
-      # Palworld: rest api port
+      # Palworld: enables the rest api server
       - ${PALWORLD_REST_PORT}:8212/tcp
     volumes:
       - nginx_data_container:/var/www/html
@@ -31,6 +31,7 @@ services:
     depends_on:
       - palworld
       - netdata
+      - admin
     env_file:
       - ../../.env
     networks:

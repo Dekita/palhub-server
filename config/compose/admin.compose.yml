@@ -3,21 +3,23 @@
 ########################################
 services: 
   # 
-  # palworld: 
-  # the service for the main palworld game server
+  # admin: 
+  # provides a frontend ui for users+admins
   # 
   admin:
     build: ../../admin
     container_name: palhub-admin-server
-    # stop_grace_period: ${PALWORLD_GRACEPERIOD}
+    stop_grace_period: ${PALWORLD_GRACEPERIOD}
     restart: unless-stopped
     image: palhub-admin-server
     volumes:
       # mount env files so we can edit/reset from ui
       - ../../.env:/app/mounted-env.env 
       - ../../.default.env:/app/default-env.env
-      - ../../logs:/app/logs # mount directory for storing logs
+      # mount directory for storing logs + backups
+      - ../../logs:/app/logs 
       - ../../backups:/app/backups
+      # mount the actual game server folder
       - ../../server/palworld:/app/PalServer
     env_file:
       - ../../.env
