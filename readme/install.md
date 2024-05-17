@@ -30,6 +30,12 @@ Force rebuild the image
 docker compose up --build --force-recreate
 ```
 
+Launch the minimal version / specify alternative compose file:
+```
+docker compose -f docker-compose.minimal.yml --build
+```
+
+
 Tail currently running images logs
 ```
 docker compose logs -f
@@ -39,7 +45,6 @@ Shutdown all services
 ```
 docker compose down
 ```
-
 
 ## The Launcher Script
 Included in the project is a launcher script; `launcher.sh`, that is designed to start an additional server on port 8080 that is used for the running container to interface with, to run predefined commands on the underlying machine, to fully update the palhub::server framework (updates repo, and rebuilds containers).
