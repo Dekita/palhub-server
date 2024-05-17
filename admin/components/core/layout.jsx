@@ -17,13 +17,8 @@ import Dektionary from 'config/dektionary';
 
 
 function GoogleTagManager() {
-    process.env.GOOGLE_TAG_ENABLED
-
-    const anal = {enabled: false, id: 'G-Z0PJR3Y1DL'};
     const enabled = process.env.GOOGLE_TAG_ENABLED;
     const id = process.env.GOOGLE_TAG_ID;
-
-
     if (!enabled) return null;
     return <>
         <Script async src={`https://www.googletagmanager.com/gtag/js?id=${id}`} />
