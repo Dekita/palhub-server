@@ -1,9 +1,13 @@
+########################################
+# PalHUB::Server by dekitarpg@gmail.com
+########################################
 
 .env
 logs/*
 backups/*
 server/palworld/*
 config/nginx/.htpasswd
-zz-todelete
 
+# 
+zz-todelete
 z-server-data.md
