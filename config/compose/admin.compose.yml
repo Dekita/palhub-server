@@ -24,6 +24,8 @@ services:
       # additional mounts for system id + time
       - /etc/machine-id:/etc/machine-id:ro
       - /etc/localtime:/etc/localtime:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     env_file:
       - ../../.env
     networks:
