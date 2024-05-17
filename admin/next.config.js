@@ -4,23 +4,8 @@ const nextConfig = {
     swcMinify: true,
     basePath: '',
     distDir: 'build',
-
     // creates standalone output for docker:
     output: 'standalone',
-
-    // images: {
-    //     domains: ['localhost']
-    // },
-
-    // allows hotreloading in docker when devmode <3
-    // throws warning as not in 'allowed' properties
-    // webpackDevMiddleware(config) {
-    //     config.watchOptions = {
-    //         aggregateTimeout: 300,
-    //         poll: 1000,
-    //     };
-    //     return config;
-    // },
 
     // set html page lang:en
     // i18n: {

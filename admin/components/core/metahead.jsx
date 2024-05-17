@@ -4,12 +4,6 @@
 ########################################
 */
 
-/**
-* Generates a custom svg header image for the page that MetaHead
-* is included on. useful for when sharing a particular page.
-* see also: page/api/svg.jsx
-*/
-
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
@@ -80,7 +74,7 @@ export default function MetaHead({ title, desc, url = null }) {
             <meta itemProp='image' content={svg} />
             {/* <!-- Discord / Facebook Meta Tags --> */}
             <meta property='og:type' content='website' />
-            <meta property='og:site_name' content='stablerender.com' />
+            <meta property='og:site_name' content='palhub.dekitarpg.com' />
             <meta property='og:title' content={title} />
             <meta property='og:description' content={desc} />
             <meta property='og:url' content={url} />

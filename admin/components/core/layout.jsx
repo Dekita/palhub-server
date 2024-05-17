@@ -16,7 +16,14 @@ import Navbar from '@components/core/navbar';
 import Dektionary from 'config/dektionary';
 
 
-function GoogleTagManager({enabled, id}) {
+function GoogleTagManager() {
+    process.env.GOOGLE_TAG_ENABLED
+
+    const anal = {enabled: false, id: 'G-Z0PJR3Y1DL'};
+    const enabled = process.env.GOOGLE_TAG_ENABLED;
+    const id = process.env.GOOGLE_TAG_ID;
+
+
     if (!enabled) return null;
     return <>
         <Script async src={`https://www.googletagmanager.com/gtag/js?id=${id}`} />
@@ -45,8 +52,6 @@ export default function Layout({ children }) {
     const isbasepath = active_route !== '/';
     const bodystyle = isbasepath ? {overflowY: 'scroll'} : {};
 
-    const anal = {enabled: false, id: 'G-Z0PJR3Y1DL'};
-
     return (
         <>
             {/* <!-- Load theme style: not best practice --> */}
@@ -57,7 +62,7 @@ export default function Layout({ children }) {
                 desc={Dektionary.tagline}
                 url={active_route}
             />
-            <GoogleTagManager {...anal} />
+            <GoogleTagManager />
             <div className='vh-100 theme-bg selection-secondary'>
                 <Navbar modals={modals} />
                 <div id='main-body' className='main-body h-full' style={bodystyle}>

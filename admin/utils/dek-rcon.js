@@ -66,18 +66,12 @@ module.exports = class DekRCON {
             const credentials = {...CREDENTIALS};
             // if (!!!pwd) credentials.password = pwd;
             credentials.password = await getPasswordFromINI();
-
-            console.log('rcon credentials:', credentials)
+            // console.log('rcon credentials:', credentials)
             const rcon = new DekRCON(credentials,false);
             await rcon.connect();
             const result = await rcon.cmd(cmd)
             await rcon.close();
-
-            // const rcon = await RconClient.connect(credentials);
-            // const result = (await rcon.cmd(cmd)).trim();
-            then(result);
-            // .then(res => then(res.trim())).catch(error);
-            // await rcon.close().then(close);
+            await then(result);
             return result;
         } catch (e) {
             error(e);
