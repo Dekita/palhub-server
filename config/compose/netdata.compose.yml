@@ -25,6 +25,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ../../config/netdata/netdata.conf:/etc/netdata/netdata.conf
       - ../../logs/netdata:/var/log/netdata
+      # additional mounts for system id + time
+      - /etc/machine-id:/etc/machine-id:ro
+      - /etc/localtime:/etc/localtime:ro
     depends_on:
       - palworld
     env_file:

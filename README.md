@@ -22,7 +22,7 @@ PalHUB::Server is a docker compose configuration designed to run the windows ver
 ## Advanced Features
 - NginX proxy setup to allow for advanced route/port control/password protected routes
 - Netdata dashboard for full system metrics and custom server specific activity graphs
-- Launcher scripts, that interface with the container to to fully update via the ui. 
+- Launcher scripts, that interface with the container to fully update via the ui. 
 - {ComingSoon..}
 
 

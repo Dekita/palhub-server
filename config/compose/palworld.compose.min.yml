@@ -1,0 +1,26 @@
+########################################
+# PalHUB::Server by dekitarpg@gmail.com
+########################################
+services: 
+  # 
+  # palworld: 
+  # the service for the main palworld game server
+  # 
+  palworld:
+    extends: #extend upon the base admin.compose file
+      file: ./palworld.compose.yml
+      service: palworld
+    ### Ports can be exposed here if nginx, admin, and netdata are disabled from main compose file :O
+    ports: 
+      # palworld: main server communication line 
+      - ${PALWORLD_GAME_PORT}:8211/udp 
+      # palworld: allows server to show up in the community servers tab 
+      - ${PALWORLD_COMM_PORT}:27015/tcp 
+      # palworld: allows rcon to communicate with server
+      - ${PALWORLD_RCON_PORT}:25575/tcp
+      # Palworld: rest api port
+      - ${PALWORLD_REST_PORT}:8212/tcp 
+    env_file:
+      - ../../.env
+    networks:
+      - palhubnet

@@ -21,6 +21,9 @@ services:
       - ../../backups:/app/backups
       # mount the actual game server folder
       - ../../server/palworld:/app/PalServer
+      # additional mounts for system id + time
+      - /etc/machine-id:/etc/machine-id:ro
+      - /etc/localtime:/etc/localtime:ro
     env_file:
       - ../../.env
     networks:

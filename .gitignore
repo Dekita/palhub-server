@@ -5,3 +5,5 @@ backups/*
 server/palworld/*
 config/nginx/.htpasswd
 zz-todelete
+
+z-server-data.md

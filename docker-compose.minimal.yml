@@ -8,7 +8,4 @@ version: '3.9' # may not be required depending on your docker/compose versions
 # 
 include:
   - ./config/compose/network.compose.yml
-  - ./config/compose/admin.compose.yml
   - ./config/compose/palworld.compose.yml
-  - ./config/compose/netdata.compose.yml
-  - ./config/compose/nginx.compose.yml

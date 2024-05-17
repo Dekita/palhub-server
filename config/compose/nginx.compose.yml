@@ -28,6 +28,9 @@ services:
       - ../../config/nginx:/etc/nginx
       - ../../logs/nginx:/var/log/nginx
       - ../../logs:/app/logs
+      # additional mounts for system id + time
+      - /etc/machine-id:/etc/machine-id:ro
+      - /etc/localtime:/etc/localtime:ro
     depends_on:
       - palworld
       - netdata
